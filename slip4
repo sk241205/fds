@@ -1,0 +1,134 @@
+Q.2 A) Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options
+
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+
+
+# Generate a random array of 50 integers between 1 and 100
+
+random_data = np.random.randint(1, 101, size=50)
+
+
+
+plt.figure(figsize=(12, 10))
+
+
+
+plt.subplot(2, 2, 1)
+
+plt.plot(random_data, color='blue', marker='o', linestyle='-', markersize=5)
+
+plt.title('Line Chart', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+plt.grid(True)
+
+
+
+# Scatter Plot
+
+plt.subplot(2, 2, 2)
+
+plt.scatter(range(len(random_data)), random_data, color='green', alpha=0.7)
+
+plt.title('Scatter Plot', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+plt.grid(True)
+
+
+
+# Histogram
+
+plt.subplot(2, 2, 3)
+
+plt.hist(random_data, bins=10, color='orange', edgecolor='black', alpha=0.7)
+
+plt.title('Histogram', fontsize=14)
+
+plt.xlabel('Value', fontsize=12)
+
+plt.ylabel('Frequency', fontsize=12)
+
+
+
+plt.subplot(2, 2, 4)
+
+plt.boxplot(random_data, patch_artist=True, boxprops=dict(facecolor='lightblue'))
+
+plt.title('Box Plot', fontsize=14)
+
+plt.ylabel('Value', fontsize=12)
+
+
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+Q.2 B) Write a Python program to print the shape, number of rows-columns, data types, feature names and the description of the data(Use User_Data.csv) 
+
+
+import pandas as pd
+
+
+
+# Load the dataset
+
+df = pd.read_csv('User_Data.csv')  # Replace with the actual path to your CSV file
+
+
+
+# Print the shape of the dataset
+
+print(f"Shape of the dataset: {df.shape}")
+
+
+
+# Print the number of rows and columns
+
+num_rows, num_columns = df.shape
+
+print(f"Number of Rows: {num_rows}")
+
+print(f"Number of Columns: {num_columns}")
+
+
+
+# Print data types of each feature
+
+print("\nData Types of Each Feature:")
+
+print(df.dtypes)
+
+
+
+# Print feature names
+
+print("\nFeature Names:")
+
+print(df.columns.tolist())
+
+
+
+# Print description of the data
+
+print("\nDescription of the Data:")
+
+print(df.describe(include='all'))  # Include='all' to get statistics for all columns, including non-numeric
+
+
+
+
