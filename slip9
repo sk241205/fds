@@ -1,0 +1,115 @@
+Q.2 A) Generate a random array of 50 integers and display them using a line chart, scatter plot. Apply appropriate color, labels and styling options. 
+
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+
+
+# Generate a random array of 50 integers between 1 and 100
+
+random_data = np.random.randint(1, 101, size=50)
+
+
+
+# Set up the figure
+
+plt.figure(figsize=(12, 6))
+
+
+
+# Line Chart
+
+plt.subplot(1, 2, 1)
+
+plt.plot(random_data, color='blue', marker='o', linestyle='-', markersize=5)
+
+plt.title('Line Chart', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+plt.grid(True)
+
+
+
+# Scatter Plot
+
+plt.subplot(1, 2, 2)
+
+plt.scatter(range(len(random_data)), random_data, color='green', alpha=0.7)
+
+plt.title('Scatter Plot', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+
+
+# Adjust layout to prevent overlap
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+
+Q.2 B) Create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart.
+
+
+import matplotlib.pyplot as plt
+
+
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+
+marks = [85, 90, 78, 88, 92]
+
+
+
+plt.figure(figsize=(8, 8))
+
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['gold', 'lightcoral', 'lightskyblue', 'lightgreen', 'lightpink'])
+
+plt.title('Marks Distribution by Subject', fontsize=16)
+
+plt.axis('equal')
+
+plt.show()
+
+
+
+
+
+Q.2 C) Write a program in python to perform following task (Use winequality-red.csv ) [5] Import Dataset and do the followings: a) Describing the dataset b) Shape of the dataset c) Display first 3 rows from dataset 
+
+
+import pandas as pd
+
+
+
+df = pd.read_csv('winequality-red.csv')
+
+
+
+print("Describing the Dataset:")
+
+print(df.describe())
+
+
+
+print("\nShape of the Dataset:")
+
+print(df.shape)
+
+
+
+print("\nFirst 3 Rows of the Dataset:")
+
+print(df.head(3))
+
