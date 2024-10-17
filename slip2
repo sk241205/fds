@@ -1,0 +1,141 @@
+Q.2 A) Write a Python program for Handling Missing Value. Replace missing value of salary, age column with mean of that column.(Use Data.csv file).
+
+
+import pandas as pd
+
+
+
+# Load the dataset
+
+df = pd.read_csv('Data.csv')
+
+
+
+# Display the dataset before handling missing values
+
+print("Dataset before handling missing values:")
+
+print(df)
+
+
+
+# Replace missing values in 'salary' column with the mean of the 'salary' column
+
+df['salary'].fillna(df['salary'].mean(), inplace=True)
+
+
+
+# Replace missing values in 'age' column with the mean of the 'age' column
+
+df['age'].fillna(df['age'].mean(), inplace=True)
+
+
+
+# Display the dataset after handling missing values
+
+print("\nDataset after handling missing values:")
+
+print(df)
+
+
+
+# Optionally save the updated dataset to a new CSV file
+
+df.to_csv('Data_Updated.csv', index=False)
+
+
+
+
+
+
+Q.2 B) Write a Python program to generate a line plot of name Vs salary
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+
+# Load the dataset
+
+df = pd.read_csv('Data.csv')
+
+
+
+# Plot name vs salary
+
+plt.figure(figsize=(8, 6))
+
+plt.plot(df['name'], df['salary'], marker='o', color='b', linestyle='-', markersize=8)
+
+
+
+# Set plot title and labels
+
+plt.title('Name vs Salary', fontsize=16)
+
+plt.xlabel('Name', fontsize=12)
+
+plt.ylabel('Salary', fontsize=12)
+
+
+
+# Rotate the names on x-axis for better readability
+
+plt.xticks(rotation=45)
+
+
+
+# Show the plot
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+
+
+Q.2 C) Download the heights and weights dataset and load the dataset froma given csv file into a dataframe. Print the first, last 10 rows and random 20 rows also display shape of the dataset. 
+
+
+
+import pandas as pd
+
+
+
+# Load the dataset from a CSV file
+
+df = pd.read_csv('heights_weights.csv')  # Replace 'heights_weights.csv' with your actual file path
+
+
+
+# Display the shape of the dataset
+
+print(f"Shape of the dataset: {df.shape}")
+
+
+
+# Print the first 10 rows
+
+print("\nFirst 10 rows of the dataset:")
+
+print(df.head(10))
+
+
+
+# Print the last 10 rows
+
+print("\nLast 10 rows of the dataset:")
+
+print(df.tail(10))
+
+
+
+# Print 20 random rows
+
+print("\nRandom 20 rows of the dataset:")
+
+print(df.sample(20))
+
