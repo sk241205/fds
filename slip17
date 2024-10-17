@@ -1,0 +1,125 @@
+
+Q.2 A) Write a Python program to draw scatter plots to compare two features of the iris dataset
+
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the actual path to your dataset file
+
+
+
+# Set the style of seaborn for better aesthetics
+
+sns.set(style="whitegrid")
+
+
+
+# Create scatter plots for different pairs of features
+
+plt.figure(figsize=(12, 8))
+
+
+
+# Scatter plot: Petal Length vs Petal Width
+
+plt.subplot(2, 2, 1)
+
+sns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species', style='species', palette='deep')
+
+plt.title('Petal Length vs Petal Width')
+
+
+
+# Scatter plot: Sepal Length vs Sepal Width
+
+plt.subplot(2, 2, 2)
+
+sns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', style='species', palette='deep')
+
+plt.title('Sepal Length vs Sepal Width')
+
+
+
+# Scatter plot: Petal Length vs Sepal Length
+
+plt.subplot(2, 2, 3)
+
+sns.scatterplot(data=df, x='petal_length', y='sepal_length', hue='species', style='species', palette='deep')
+
+plt.title('Petal Length vs Sepal Length')
+
+
+
+# Scatter plot: Petal Width vs Sepal Width
+
+plt.subplot(2, 2, 4)
+
+sns.scatterplot(data=df, x='petal_width', y='sepal_width', hue='species', style='species', palette='deep')
+
+plt.title('Petal Width vs Sepal Width')
+
+
+
+# Adjust layout to prevent overlap
+
+plt.tight_layout()
+
+
+
+# Show the plots
+
+plt.show()
+
+
+
+
+
+Q.2 B) Write a Python program to create a data frame containing columns name, age , salary, department . Add 10 rows to the data frame. View the data frame. 
+
+
+import pandas as pd
+
+
+
+# Create a DataFrame with students' information
+
+data = {
+
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve',
+
+             'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack'],
+
+    'Age': [25, 30, 22, 35, 29, 28, 32, 24, 27, 31],
+
+    'Salary': [50000, 60000, 55000, 70000, 65000,
+
+               58000, 62000, 72000, 48000, 52000],
+
+    'Department': ['HR', 'IT', 'Finance', 'Marketing', 'HR',
+
+                   'IT', 'Finance', 'HR', 'Marketing', 'IT']
+
+}
+
+
+
+# Create the DataFrame
+
+df = pd.DataFrame(data)
+
+
+
+# Display the DataFrame
+
+print("DataFrame:")
+
+print(df)
+
