@@ -1,0 +1,112 @@
+Q.2 A) Write a Python program for Handling Missing Value. Replace missing value of salary, age column with mean of that column.(Use Data.csv file).
+
+
+# Required libraries
+
+import pandas as pd
+
+
+
+# Read the CSV file (assuming the file 'Data.csv' is in the same directory)
+
+data = pd.read_csv('Data.csv')
+
+
+
+# Display the data before handling missing values
+
+print("Data before handling missing values:")
+
+print(data)
+
+
+
+# Calculate the mean of 'salary' and 'age' columns
+
+mean_salary = data['salary'].mean()
+
+mean_age = data['age'].mean()
+
+
+
+# Replace missing values in 'salary' and 'age' columns with their respective means
+
+data['salary'].fillna(mean_salary, inplace=True)
+
+data['age'].fillna(mean_age, inplace=True)
+
+
+
+# Display the data after handling missing values
+
+print("\nData after replacing missing values in 'salary' and 'age':")
+
+print(data)
+
+
+
+# Optionally, save the updated data back to a new CSV file
+
+data.to_csv('Data_Cleaned.csv', index=False)
+
+
+
+
+
+Q.2 B) Write a Python program to generate a line plot of name Vs salary 
+
+
+# Required libraries
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+
+# Read the CSV file (assuming the file 'Data.csv' contains 'name' and 'salary' columns)
+
+data = pd.read_csv('Data.csv')
+
+
+
+# Create a line plot: name vs salary
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(data['name'], data['salary'], marker='o', color='b', linestyle='-', label='Salary')
+
+
+
+# Add title and labels
+
+plt.title('Name vs Salary', fontsize=16)
+
+plt.xlabel('Name', fontsize=12)
+
+plt.ylabel('Salary', fontsize=12)
+
+
+
+# Rotate the x-axis labels for better readability
+
+plt.xticks(rotation=45)
+
+
+
+# Add grid and legend
+
+plt.grid(True)
+
+plt.legend()
+
+
+
+# Display the plot
+
+plt.tight_layout()
+
+plt.show()
+
+
+
