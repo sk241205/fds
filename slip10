@@ -1,0 +1,86 @@
+
+Q.2 A) Write a python program to Display column-wise mean, and median for the SOCRHeightWeight dataset.
+
+
+import pandas as pd
+
+
+
+# Load the SOCRHeightWeight dataset
+
+df = pd.read_csv('SOCRHeightWeight.csv')  # Replace with the actual file path
+
+
+
+# Calculate column-wise mean
+
+mean_values = df.mean()
+
+
+
+# Calculate column-wise median
+
+median_values = df.median()
+
+
+
+# Display the results
+
+print("Column-wise Mean:")
+
+print(mean_values)
+
+
+
+print("\nColumn-wise Median:")
+
+print(median_values)
+
+
+
+
+Q.2 B) Write a python program to compute sum of Manhattan distance between all pairs of points. 
+
+
+import numpy as np
+
+
+
+# Sample data points (you can modify these points or read from a file)
+
+points = np.array([[1, 2], [3, 5], [4, 1], [8, 0]])
+
+
+
+def manhattan_distance(point1, point2):
+
+    return np.abs(point1[0] - point2[0]) + np.abs(point1[1] - point2[1])
+
+
+
+def total_manhattan_distance(points):
+
+    total_distance = 0
+
+    num_points = len(points)
+
+   
+
+    for i in range(num_points):
+
+        for j in range(i + 1, num_points):  
+
+            total_distance += manhattan_distance(points[i], points[j])
+
+   
+
+    return total_distance
+
+
+
+
+result = total_manhattan_distance(points)
+
+
+print(f"Sum of Manhattan distances between all pairs of points: {result}")
+
