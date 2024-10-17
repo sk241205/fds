@@ -1,0 +1,82 @@
+
+Q.2 A)Write a Python program to create box plots to see how each feature i.e. Sepal Length, Sepal Width, Petal Length, Petal Width are distributed across the three species. (Use iris.csv dataset)
+
+
+import pandas as pd
+
+import seaborn as sns
+
+import matplotlib.pyplot as plt
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the actual path to your CSV file
+
+
+
+# Set the style of seaborn
+
+sns.set(style="whitegrid")
+
+
+
+# Create box plots for each feature
+
+features = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
+
+plt.figure(figsize=(15, 10))
+
+
+
+for i, feature in enumerate(features, start=1):
+
+    plt.subplot(2, 2, i)  # Create a 2x2 grid of subplots
+
+    sns.boxplot(x='species', y=feature, data=df)
+
+    plt.title(f'Box plot of {feature} by Species')
+
+    plt.xlabel('Species')
+
+    plt.ylabel(feature)
+
+
+
+# Adjust layout
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+
+
+Q.2 B) Write a Python program to view basic statistical details of the data (Use Heights and Weights Dataset) 
+
+
+ import pandas as pd
+
+
+
+# Load the Heights and Weights dataset
+
+df = pd.read_csv('heights_weights.csv')  # Replace 'heights_weights.csv' with your actual file path
+
+
+
+# Display basic statistical details of the data
+
+basic_stats = df.describe()
+
+
+
+# Print the statistics
+
+print("Basic Statistical Details:")
+
+print(basic_stats)
+
