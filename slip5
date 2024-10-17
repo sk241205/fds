@@ -1,0 +1,146 @@
+Q.2 A) Generate a random array of 50 integers and display them using a line chart, scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+
+
+# Required libraries
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+
+
+# Generate a random array of 50 integers between 1 and 100
+
+data = np.random.randint(1, 101, 50)
+
+
+
+# Create a figure and subplots
+
+plt.figure(figsize=(12, 10))
+
+
+
+# Line Chart
+
+plt.subplot(2, 2, 1)
+
+plt.plot(data, color='blue', marker='o', linestyle='-', label='Random Data')
+
+plt.title('Line Chart', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+plt.grid(True)
+
+plt.legend()
+
+
+
+# Scatter Plot
+
+plt.subplot(2, 2, 2)
+
+plt.scatter(range(50), data, color='red', label='Random Data')
+
+plt.title('Scatter Plot', fontsize=14)
+
+plt.xlabel('Index', fontsize=12)
+
+plt.ylabel('Value', fontsize=12)
+
+plt.grid(True)
+
+plt.legend()
+
+
+
+# Histogram
+
+plt.subplot(2, 2, 3)
+
+plt.hist(data, bins=10, color='green', edgecolor='black')
+
+plt.title('Histogram', fontsize=14)
+
+plt.xlabel('Value', fontsize=12)
+
+plt.ylabel('Frequency', fontsize=12)
+
+
+
+# Box Plot
+
+plt.subplot(2, 2, 4)
+
+plt.boxplot(data, patch_artist=True, boxprops=dict(facecolor='orange'))
+
+plt.title('Box Plot', fontsize=14)
+
+plt.ylabel('Value', fontsize=12)
+
+
+
+# Adjust layout and show the plot
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+
+
+Q.2 B) Write a Python program to print the shape, number of rows-columns, data types, feature names and the description of the data(Use User_Data.csv) 
+
+
+# Required libraries
+
+import pandas as pd
+
+
+
+# Read the CSV file (assuming the file 'User_Data.csv' is in the same directory)
+
+data = pd.read_csv('User_Data.csv')
+
+
+
+# Print the shape of the data (number of rows and columns)
+
+print("Shape of the data (rows, columns):", data.shape)
+
+
+
+# Print the number of rows and columns
+
+print("Number of rows:", data.shape[0])
+
+print("Number of columns:", data.shape[1])
+
+
+
+# Print the data types of each column
+
+print("\nData types of each column:")
+
+print(data.dtypes)
+
+
+
+# Print the feature (column) names
+
+print("\nFeature names (columns):")
+
+print(list(data.columns))
+
+
+
+# Print the description of the data (descriptive statistics)
+
+print("\nDescription of the data:")
+
+print(data.describe())
