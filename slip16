@@ -1,0 +1,118 @@
+
+Q.2 A) Write a python program to create two lists, one representing subject names and the other representing marks obtained in those subjects. Display the data in a pie chart and bar chart.
+
+
+import matplotlib.pyplot as plt
+
+
+
+# Define subject names and corresponding marks
+
+subjects = ['Math', 'Science', 'English', 'History', 'Art']
+
+marks = [85, 90, 78, 88, 92]
+
+
+
+# Create a pie chart
+
+plt.figure(figsize=(12, 6))
+
+
+
+# Pie Chart
+
+plt.subplot(1, 2, 1)
+
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=90, colors=['gold', 'lightcoral', 'lightskyblue', 'lightgreen', 'lightpink'])
+
+plt.title('Marks Distribution by Subject', fontsize=16)
+
+plt.axis('equal')  # Equal aspect ratio ensures that pie chart is circular.
+
+
+
+# Bar Chart
+
+plt.subplot(1, 2, 2)
+
+plt.bar(subjects, marks, color='skyblue', edgecolor='black')
+
+plt.title('Marks by Subject', fontsize=16)
+
+plt.xlabel('Subjects', fontsize=12)
+
+plt.ylabel('Marks Obtained', fontsize=12)
+
+plt.ylim(0, 100)  # Setting the limit for y-axis
+
+
+
+# Adjust layout to prevent overlap
+
+plt.tight_layout()
+
+
+
+# Show the plots
+
+plt.show()
+
+
+
+
+
+Q.2 B) Write a python program to create a data frame for students’ information such as name, graduation percentage and age. Display average age of students, average of graduation percentage. 
+
+
+import pandas as pd
+
+
+
+# Create a DataFrame with students' information
+
+data = {
+
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+
+    'Graduation_Percentage': [85.5, 90.0, 78.0, 88.5, 92.0],
+
+    'Age': [21, 22, 20, 23, 21]
+
+}
+
+
+
+df = pd.DataFrame(data)
+
+
+
+# Display the DataFrame
+
+print("Students Information:")
+
+print(df)
+
+
+
+# Calculate the average age of students
+
+average_age = df['Age'].mean()
+
+
+
+# Calculate the average graduation percentage
+
+average_graduation_percentage = df['Graduation_Percentage'].mean()
+
+
+
+# Display the averages
+
+print(f"\nAverage Age of Students: {average_age:.2f}")
+
+print(f"Average Graduation Percentage: {average_graduation_percentage:.2f}")
+
+
+
+
