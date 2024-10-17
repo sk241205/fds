@@ -1,0 +1,68 @@
+Q.2 A) Write a Python program to create a Pie plot to get the frequency of the three species of the Iris data (Use iris.csv) 
+
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the path to your dataset file
+
+
+
+# Count the frequency of each species
+
+species_count = df['species'].value_counts()
+
+
+
+# Create a pie plot
+
+plt.figure(figsize=(8, 8))
+
+plt.pie(species_count, labels=species_count.index, autopct='%1.1f%%', startangle=90, colors=['skyblue', 'lightgreen', 'lightcoral'])
+
+plt.title('Frequency of Iris Species', fontsize=16)
+
+plt.axis('equal')  # Equal aspect ratio ensures that pie chart is circular.
+
+
+
+# Display the pie chart
+
+plt.show()
+
+
+
+
+
+B) Write a Python program to view basic statistical details of the data.(Use wineequality-red.csv)
+
+
+import pandas as pd
+
+
+
+# Load the Wine Quality dataset
+
+df = pd.read_csv('winequality-red.csv')  # Replace with your actual file path
+
+
+
+# Display basic statistical details of the data
+
+basic_stats = df.describe()
+
+
+
+# Print the statistics
+
+print("Basic Statistical Details:")
+
+print(basic_stats)
+
+
+
