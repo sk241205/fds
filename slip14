@@ -1,0 +1,60 @@
+Q. 2 A) Write a Python NumPy program to compute the weighted average along the specified axis of a given flattened array. 
+
+
+import numpy as np
+
+
+
+# Create a flattened array
+
+data = np.array([10, 20, 30, 40, 50])
+
+
+
+# Create weights for the array
+
+weights = np.array([1, 2, 3, 4, 5])
+
+
+
+# Compute the weighted average
+
+weighted_average = np.average(data, weights=weights)
+
+
+
+# Display the result
+
+print(f"Flattened Array: {data}")
+
+print(f"Weights: {weights}")
+
+print(f"Weighted Average: {weighted_average}")
+
+
+
+
+Q. 2 B) Write a Python program to view basic statistical details of the data (Use advertising.csv) 
+
+
+import pandas as pd
+
+
+
+# Load the advertising dataset
+
+df = pd.read_csv('advertising.csv')  # Replace with your actual file path
+
+
+
+# Display basic statistical details of the data
+
+basic_stats = df.describe()
+
+
+
+# Print the statistics
+
+print("Basic Statistical Details:")
+
+print(basic_stats)
