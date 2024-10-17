@@ -1,0 +1,72 @@
+
+Q.2) Dataset Name: winequality-red.csv [15] Write a program in python to perform following tasks a. Rescaling: Normalised the dataset using MinMaxScaler class b. Standardizing Data (transform them into a standard Gaussian distribution with a mean of 0 and a standard deviation of 1) c. Normalizing Data ( rescale each observation to a length of 1 (a unit norm). For this, use the Normalizer class.) 
+
+
+import pandas as pd
+
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+
+
+
+# Load the wine quality dataset
+
+df = pd.read_csv('winequality-red.csv')  # Replace with your actual file path
+
+
+
+# Display the first few rows of the original dataset
+
+print("Original Dataset:")
+
+print(df.head())
+
+
+
+# a. Rescaling: Normalize the dataset using MinMaxScaler
+
+minmax_scaler = MinMaxScaler()
+
+normalized_data = minmax_scaler.fit_transform(df)
+
+normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
+
+
+
+print("\nNormalized Dataset using MinMaxScaler:")
+
+print(normalized_df.head())
+
+
+
+# b. Standardizing Data (transform into a standard Gaussian distribution)
+
+standard_scaler = StandardScaler()
+
+standardized_data = standard_scaler.fit_transform(df)
+
+standardized_df = pd.DataFrame(standardized_data, columns=df.columns)
+
+
+
+print("\nStandardized Dataset:")
+
+print(standardized_df.head())
+
+
+
+# c. Normalizing Data (rescale each observation to a length of 1)
+
+normalizer = Normalizer()
+
+normalized_unit_data = normalizer.fit_transform(df)
+
+normalized_unit_df = pd.DataFrame(normalized_unit_data, columns=df.columns)
+
+
+
+print("\nNormalized Dataset with Unit Norm:")
+
+print(normalized_unit_df.head())
+
+
+
