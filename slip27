@@ -1,0 +1,64 @@
+Q.2) Create a dataset data.csv having two categorical column (the country column, and the purchased column). [15] a. Apply OneHot coding on Country column. b. Apply Label encoding on purchased column 
+
+
+import pandas as pd
+
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+
+
+# Load the dataset
+
+df = pd.read_csv('data.csv')  # Replace with your actual file path if needed
+
+
+
+# Display the original dataset
+
+print("Original Dataset:")
+
+print(df)
+
+
+
+# a. Apply One-Hot Encoding on the Country column
+
+one_hot_encoder = OneHotEncoder(sparse=False)
+
+country_encoded = one_hot_encoder.fit_transform(df[['country']])
+
+
+
+# Convert the One-Hot Encoded array to a DataFrame
+
+country_encoded_df = pd.DataFrame(country_encoded, columns=one_hot_encoder.get_feature_names_out(['country']))
+
+
+
+# Concatenate the One-Hot Encoded DataFrame with the original DataFrame
+
+df_one_hot = pd.concat([df, country_encoded_df], axis=1).drop('country', axis=1)
+
+
+
+print("\nDataset after One-Hot Encoding on 'country':")
+
+print(df_one_hot)
+
+
+
+# b. Apply Label Encoding on the Purchased column
+
+label_encoder = LabelEncoder()
+
+df_one_hot['purchased'] = label_encoder.fit_transform(df_one_hot['purchased'])
+
+
+
+print("\nDataset after Label Encoding on 'purchased':")
+
+print(df_one_hot)
+
+
+
+
