@@ -1,0 +1,92 @@
+Q.2) Write a Python program [15] 1. To create a dataframe containing columns name, age and percentage. Add 10 rows to the dataframe. View the dataframe. 2. To print the shape, number of rows-columns, data types, feature names and the description of the data 3. To Add 5 rows with duplicate values and missing values. Add a column ‘remarks’ with empty values. Display the data. 
+
+
+import pandas as pd
+
+import numpy as np
+
+
+
+# 1. Create a DataFrame with columns 'name', 'age', and 'percentage'
+
+data = {
+
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve',
+
+             'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack'],
+
+    'Age': [23, 30, 22, 25, 29,
+
+            31, 28, 24, 27, 26],
+
+    'Percentage': [85.5, 90.0, 78.0, 88.5, 92.0,
+
+                   81.0, 75.0, 88.0, 95.0, 82.0]
+
+}
+
+
+
+df = pd.DataFrame(data)
+
+
+
+# View the DataFrame
+
+print("Initial DataFrame:")
+
+print(df)
+
+
+
+# 2. Print shape, number of rows-columns, data types, feature names, and description of the data
+
+print("\nShape of the DataFrame:", df.shape)  # (number of rows, number of columns)
+
+print("Number of Rows:", df.shape[0])
+
+print("Number of Columns:", df.shape[1])
+
+print("\nData Types:")
+
+print(df.dtypes)
+
+print("\nFeature Names:", df.columns.tolist())
+
+print("\nDescription of the Data:")
+
+print(df.describe())
+
+
+
+# 3. Add 5 rows with duplicate values and missing values
+
+duplicate_data = {
+
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+
+    'Age': [23, 30, np.nan, 25, 29],  # Adding a missing value for Charlie
+
+    'Percentage': [85.5, 90.0, 78.0, 88.5, 92.0]
+
+}
+
+
+
+df_duplicates = pd.DataFrame(duplicate_data)
+
+df = pd.concat([df, df_duplicates], ignore_index=True)
+
+
+
+# Add a new column 'remarks' with empty values
+
+df['Remarks'] = ''
+
+
+
+# Display the updated DataFrame
+
+print("\nUpdated DataFrame with Duplicates and Missing Values:")
+
+print(df)
