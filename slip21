@@ -1,0 +1,128 @@
+Q.2 A) Import dataset “iris.csv”. Write a Python program to create a Bar plot to get the frequency of the three species of the Iris data.
+
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the actual path to your dataset file
+
+
+
+# Count the frequency of each species
+
+species_count = df['species'].value_counts()
+
+
+
+# Create a bar plot
+
+plt.figure(figsize=(8, 6))
+
+species_count.plot(kind='bar', color=['skyblue', 'lightgreen', 'lightcoral'])
+
+plt.title('Frequency of Iris Species', fontsize=16)
+
+plt.xlabel('Species', fontsize=12)
+
+plt.ylabel('Frequency', fontsize=12)
+
+plt.xticks(rotation=45)
+
+plt.grid(axis='y')
+
+
+
+# Show the plot
+
+plt.show()
+
+
+
+
+Q.2 B)Write a Python program to create a histogram of the three species of the Iris data.
+
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the actual path to your dataset file
+
+
+
+# Set the style of seaborn for better aesthetics
+
+sns.set(style="whitegrid")
+
+
+
+# Create a histogram for each feature colored by species
+
+plt.figure(figsize=(12, 8))
+
+
+
+# Histogram for Sepal Length
+
+plt.subplot(2, 2, 1)
+
+sns.histplot(data=df, x='sepal_length', hue='species', bins=10, kde=True, alpha=0.7, multiple='stack')
+
+plt.title('Sepal Length Distribution by Species')
+
+
+
+# Histogram for Sepal Width
+
+plt.subplot(2, 2, 2)
+
+sns.histplot(data=df, x='sepal_width', hue='species', bins=10, kde=True, alpha=0.7, multiple='stack')
+
+plt.title('Sepal Width Distribution by Species')
+
+
+
+# Histogram for Petal Length
+
+plt.subplot(2, 2, 3)
+
+sns.histplot(data=df, x='petal_length', hue='species', bins=10, kde=True, alpha=0.7, multiple='stack')
+
+plt.title('Petal Length Distribution by Species')
+
+
+
+# Histogram for Petal Width
+
+plt.subplot(2, 2, 4)
+
+sns.histplot(data=df, x='petal_width', hue='species', bins=10, kde=True, alpha=0.7, multiple='stack')
+
+plt.title('Petal Width Distribution by Species')
+
+
+
+# Adjust layout to prevent overlap
+
+plt.tight_layout()
+
+
+
+# Show the plots
+
+plt.show()
+
+
+
+
