@@ -1,0 +1,81 @@
+Q.2 A) Write a Python program to create a graph to find relationship between the petal length and petal width.(Use iris.csv dataset) 
+
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+
+# Load the Iris dataset
+
+df = pd.read_csv('iris.csv')  # Replace 'iris.csv' with the actual path to your dataset file
+
+
+
+# Create a scatter plot to show the relationship between petal length and petal width
+
+plt.figure(figsize=(10, 6))
+
+plt.scatter(df['petal_length'], df['petal_width'], c='blue', alpha=0.5, edgecolor='k')
+
+
+
+# Add titles and labels
+
+plt.title('Relationship between Petal Length and Petal Width', fontsize=16)
+
+plt.xlabel('Petal Length (cm)', fontsize=12)
+
+plt.ylabel('Petal Width (cm)', fontsize=12)
+
+
+
+# Display grid
+
+plt.grid(True)
+
+
+
+# Show the plot
+
+plt.show()
+
+
+
+
+Q.2 B) Write a Python program to find the maximum and minimum value of a given flattened array
+
+
+import numpy as np
+
+
+
+# Create a flattened array
+
+array = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
+
+
+
+# Find the maximum value
+
+max_value = np.max(array)
+
+
+
+# Find the minimum value
+
+min_value = np.min(array)
+
+
+
+# Display the results
+
+print(f"Flattened Array: {array}")
+
+print(f"Maximum Value: {max_value}")
+
+print(f"Minimum Value: {min_value}")
+
+
+
